@@ -4,6 +4,6 @@ class PlayerHuman :
     public Player
 {
 public:
-    virtual bool Attack();
+    virtual bool Attack(Player& enemy_player);
 };
 

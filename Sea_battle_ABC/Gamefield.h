@@ -8,6 +8,7 @@ private:
 	Ship _ships1[_SHIP_COUNT], _ships2[_SHIP_COUNT];
 	Player* _player1;
 	Player* _player2;
+	int _turn;
 	void GenerateShips();
 public:
 	Gamefield();

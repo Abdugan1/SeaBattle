@@ -12,7 +12,10 @@ private:
 public:
 	Board();
 	void SetShips(Ship* ships);
+	bool ProcessAttack(const Position& hit_pos);
+	bool isntCorrectAttack(const Position& hit_pos);
 	void DrawVisible();
 	void DrawInvisible();
+	void DrawBorders(const Ship& s);
 };
 

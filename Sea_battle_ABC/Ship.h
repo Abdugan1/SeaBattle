@@ -27,7 +27,9 @@ public:
 	Ship& operator=(const Ship& s);
 
 	void GetNewPos();
+	int GetHealth() const { return _health; };
 	int GetLength() const { return _length; };
+	void HurtDeck();
 	int GetPosX(int i) const { return _pos[i].x; };
 	int GetPosY(int i) const { return _pos[i].y; };
 	int GetBorderPosX(int i) const { return _borders_pos[i].x; };

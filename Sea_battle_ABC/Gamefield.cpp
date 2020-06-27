@@ -35,13 +35,45 @@ Gamefield::Gamefield()
 
 void Gamefield::Draw()
 {
-	_board1.DrawVisible();
-	_board2.DrawVisible();
+	if (_turn == 0)
+	{
+		do {
+			system("cls");
+			_board1.DrawVisible();
+			std::cout << std::endl;
+			_board2.DrawInvisible();
+		} while (_player1->Attack(*_player2));
+
+		do {
+			system("cls");
+			_board1.DrawInvisible();
+			std::cout << std::endl;
+			_board2.DrawVisible();
+		} while (_player2->Attack(*_player1));
+	}
+	else
+	{
+		do {
+			system("cls");
+			_board1.DrawInvisible();
+			std::cout << std::endl;
+			_board2.DrawVisible();
+
+		} while (_player2->Attack(*_player1));
+
+		do {
+			system("cls");
+			_board1.DrawVisible();
+			std::cout << std::endl;
+			_board2.DrawInvisible();
+		} while (_player1->Attack(*_player2));
+	}
 }
 
 Gamefield::Gamefield(Player& player1, Player& player2)
 {
 	GenerateShips();
+	_turn = rand() % 2;
 	_player1 = &player1;
 	_player2 = &player2;
 	_player1->AssignBoard(_board1);

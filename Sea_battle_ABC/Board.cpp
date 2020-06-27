@@ -55,6 +55,37 @@ void Board::SetShips(Ship* ships)
 	FillEmptyPlaces();
 }
 
+bool Board::ProcessAttack(const Position& hit_pos)
+{
+	if (_field[hit_pos.y][hit_pos.x] == 'd')
+	{
+		_field[hit_pos.y][hit_pos.x] = 'x';
+		return true;
+	}
+	else 
+	{
+		_field[hit_pos.y][hit_pos.x] = '/';
+		return false;
+	}
+}
+
+bool Board::isntCorrectAttack(const Position& hit_pos)
+{
+	if ((hit_pos.x < 0 || hit_pos.x >= WIDTH) || (hit_pos.y < 0 || hit_pos.y >= HEIGHT))
+	{
+		std::cout << "Wrong coord!\nEnter coord: ";
+		while (std::cin.get() != '\n')
+			continue;
+		return true;
+	}
+	else if (_field[hit_pos.y][hit_pos.x] == 'x' || _field[hit_pos.y][hit_pos.x] == '/')
+	{
+		std::cout << "You've already fired there\nEnter coord: ";
+		return true;
+	}
+	return false;
+}
+
 void Board::DrawVisible()
 {
 	using std::cout; using std::endl;
@@ -114,4 +145,12 @@ void Board::DrawInvisible()
 		str_board += '\n';
 	}
 	std::cout << str_board;
+}
+
+void Board::DrawBorders(const Ship& s)
+{
+	for (int j = 0; j < s.GetBordersCount(); j++)
+	{
+		_field[s.GetBorderPosY(j)][s.GetBorderPosX(j)] = '/';
+	}
 }

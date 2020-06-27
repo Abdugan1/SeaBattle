@@ -58,6 +58,12 @@ void Ship::GetNewPos()
 	make_borders();
 }
 
+void Ship::HurtDeck()
+{
+	_health--;
+	/*if (_health <= 0) { _beaten_status = true; }*/
+}
+
 std::vector<Position> Ship::make_upper_borders()
 {
 	if (_pos[0].y <= 0)
