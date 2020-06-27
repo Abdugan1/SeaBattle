@@ -239,6 +239,7 @@ Ship::Ship(int length)
 {
 	_length = length;
 	_health = _length;
+	_pos = new Position[_length];
 	GetNewPos();
 }
 
@@ -248,6 +249,7 @@ Ship::Ship(const Ship& s)
 	_health = s._health;
 	_dir = s._dir;
 	delete[] _pos;
+	_pos = new Position[_length];
 	for (int i = 0; i < _length; i++)
 		_pos[i] = s._pos[i];
 	_borders_pos = s._borders_pos;
@@ -268,6 +270,7 @@ Ship& Ship::operator=(const Ship& s)
 	_health = s._health;
 	_dir = s._dir;
 	delete[] _pos;
+	_pos = new Position[_length];
 	for (int i = 0; i < _length; i++)
 		_pos[i] = s._pos[i];
 	_borders_pos = s._borders_pos;

@@ -11,5 +11,7 @@ private:
 	void GenerateShips();
 public:
 	Gamefield();
+	void Draw();
+	Gamefield(Player& player1, Player& player2);
 };
 

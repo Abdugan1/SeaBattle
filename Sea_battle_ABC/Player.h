@@ -6,11 +6,11 @@ class Player
 private:
 	Board* _board;
 	Ship _ships[_SHIP_COUNT];
-	void AssignBoard(Board& board);
-	void SetShipsToBoard();
 protected:
 public:
-	Player(Board& board, Ship* ships);
+	void AssignBoard(Board& board);
+	void SetShipsToBoard(Ship* ships);
+	Player() {};
 	virtual ~Player() {};
 	virtual bool Attack() = 0;
 };

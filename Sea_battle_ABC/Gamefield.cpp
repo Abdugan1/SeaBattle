@@ -30,5 +30,22 @@ void Gamefield::GenerateShips()
 
 Gamefield::Gamefield()
 {
+	//GenerateShips();
+}
+
+void Gamefield::Draw()
+{
+	_board1.DrawVisible();
+	_board2.DrawVisible();
+}
+
+Gamefield::Gamefield(Player& player1, Player& player2)
+{
 	GenerateShips();
+	_player1 = &player1;
+	_player2 = &player2;
+	_player1->AssignBoard(_board1);
+	_player2->AssignBoard(_board2);
+	_player1->SetShipsToBoard(_ships1);
+	_player2->SetShipsToBoard(_ships2);
 }
