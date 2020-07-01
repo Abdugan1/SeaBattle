@@ -143,6 +143,7 @@
     <ClCompile Include="Gamefield.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerBot.cpp" />
     <ClCompile Include="PlayerHuman.cpp" />
     <ClCompile Include="Ship.cpp" />
   </ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Gamefield.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerBot.h" />
     <ClInclude Include="PlayerHuman.h" />
     <ClInclude Include="Ship.h" />
   </ItemGroup>

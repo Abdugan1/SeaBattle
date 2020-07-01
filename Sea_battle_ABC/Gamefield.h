@@ -10,9 +10,13 @@ private:
 	Player* _player2;
 	int _turn;
 	void GenerateShips();
+	void Player1View();
+	void Player2View();
+	void ShowWhoWon();
 public:
 	Gamefield();
 	void Draw();
 	Gamefield(Player& player1, Player& player2);
+	bool GameOver();
 };
 

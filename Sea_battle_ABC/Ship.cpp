@@ -73,7 +73,7 @@ std::vector<Position> Ship::make_upper_borders()
 	std::vector<Position> upper_borders;
 	Position tmp_pos;
 	if (isHorizontal())
-	{//ad
+	{
 		tmp_pos.y = _pos[0].y - 1;
 		for (int i = 0; i < _length; i++)
 		{
@@ -82,7 +82,7 @@ std::vector<Position> Ship::make_upper_borders()
 		}
 	}
 	else
-	{//ad
+	{
 		if (_dir == UP)
 		{
 			tmp_pos.y = _pos[_length - 1].y - 1;
@@ -113,7 +113,7 @@ std::vector<Position> Ship::make_left_borders()
 	std::vector<Position> left_borders;
 	Position tmp_pos;
 	if (isHorizontal())
-	{//ad
+	{
 		if (_dir == LEFT)
 		{
 			tmp_pos.x = _pos[_length - 1].x - 1;
@@ -132,7 +132,7 @@ std::vector<Position> Ship::make_left_borders()
 		}
 	}
 	else
-	{//ad
+	{
 		tmp_pos.x = _pos[0].x - 1;
 		for (int i = 0; i < _length; i++)
 		{
@@ -152,7 +152,7 @@ std::vector<Position> Ship::make_right_borders()
 	std::vector<Position> right_borders;
 	Position tmp_pos;
 	if (isHorizontal())
-	{//ad
+	{
 		if (_dir == LEFT)
 		{
 			tmp_pos.x = _pos[0].x + 1;
@@ -171,7 +171,7 @@ std::vector<Position> Ship::make_right_borders()
 		}
 	}
 	else
-	{//ad
+	{
 		tmp_pos.x = _pos[0].x + 1;
 		for (int i = 0; i < _length; i++)
 		{
@@ -191,7 +191,7 @@ std::vector<Position> Ship::make_bottom_borders()
 	std::vector<Position> bottom_borders;
 	Position tmp_pos;
 	if (isHorizontal())
-	{//ad
+	{
 		tmp_pos.y = _pos[0].y + 1;
 		for (int i = 0; i < _length; i++)
 		{
@@ -280,5 +280,5 @@ Ship& Ship::operator=(const Ship& s)
 	for (int i = 0; i < _length; i++)
 		_pos[i] = s._pos[i];
 	_borders_pos = s._borders_pos;
-	return *this;// TODO: вставьте здесь оператор return
+	return *this;
 }

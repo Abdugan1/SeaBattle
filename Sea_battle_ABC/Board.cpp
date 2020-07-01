@@ -41,14 +41,10 @@ void Board::SetShips(Ship* ships)
 		for (int j = 0; j < ships[i].GetLength(); j++)
 		{
 			_field[ships[i].GetPosY(j)][ships[i].GetPosX(j)] = 'd';
-			//DrawVisible();
-			//system("cls");
 		}
 		for (int j = 0; j < ships[i].GetBordersCount(); j++)
 		{
 			_field[ships[i].GetBorderPosY(j)][ships[i].GetBorderPosX(j)] = '|';
-			//DrawVisible();
-			//system("cls");
 		}
 		i++;
 	}
@@ -73,14 +69,14 @@ bool Board::isntCorrectAttack(const Position& hit_pos)
 {
 	if ((hit_pos.x < 0 || hit_pos.x >= WIDTH) || (hit_pos.y < 0 || hit_pos.y >= HEIGHT))
 	{
-		std::cout << "Wrong coord!\nEnter coord: ";
+		std::cout << "Wrong coord!\n";
 		while (std::cin.get() != '\n')
 			continue;
 		return true;
 	}
 	else if (_field[hit_pos.y][hit_pos.x] == 'x' || _field[hit_pos.y][hit_pos.x] == '/')
 	{
-		std::cout << "You've already fired there\nEnter coord: ";
+		std::cout << "You've already attacked there\n";
 		return true;
 	}
 	return false;

@@ -8,12 +8,10 @@ int main() {
 	srand(time(0));
 	PlayerHuman player1, player2;
 	Gamefield gf(player1, player2);
-	while (true)
+	while (!gf.GameOver())
 	{
 		gf.Draw();
 	}
-
-
 
 	return 0;
 }

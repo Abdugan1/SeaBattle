@@ -9,6 +9,7 @@ bool PlayerHuman::Attack(Player& enemy_player)
 	Position hit_pos;
 	do {
 		int y; char x;
+		std::cout << "Enter coord: ";
 		std::cin >> y;
 		while (!std::cin)
 		{
