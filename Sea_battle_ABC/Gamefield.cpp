@@ -1,5 +1,12 @@
 #include "Gamefield.h"
 
+bool Gamefield::_player_vs_bot = false;
+
+void Gamefield::isPlayerVsBot(bool PvB)
+{
+	_player_vs_bot = PvB;
+}
+
 void Gamefield::GenerateShips()
 {
 	int j = 0;
@@ -60,9 +67,25 @@ void Gamefield::ShowWhoWon()
 	}
 }
 
+void Gamefield::SetWhosTurn()
+{
+	_turn = rand() % 2;
+}
+
 Gamefield::Gamefield()
 {
 	//GenerateShips();
+}
+
+void Gamefield::SetPlayers(Player& player1, Player& player2)
+{
+	GenerateShips();
+	_player1 = &player1;
+	_player2 = &player2;
+	_player1->AssignBoard(_board1);
+	_player2->AssignBoard(_board2);
+	_player1->SetShipsToBoard(_ships1);
+	_player2->SetShipsToBoard(_ships2);
 }
 
 void Gamefield::Draw()
@@ -74,13 +97,13 @@ void Gamefield::Draw()
 		} while (_player1->Attack(*_player2));
 
 		do {
-			Player2View();
+			_player_vs_bot ? Player1View() : Player2View();
 		} while (_player2->Attack(*_player1));
 	}
 	else
 	{
 		do {
-			Player2View();
+			_player_vs_bot ? Player1View() : Player2View();
 		} while (_player2->Attack(*_player1));
 
 		do {
@@ -92,13 +115,8 @@ void Gamefield::Draw()
 Gamefield::Gamefield(Player& player1, Player& player2)
 {
 	GenerateShips();
-	_turn = rand() % 2;
-	_player1 = &player1;
-	_player2 = &player2;
-	_player1->AssignBoard(_board1);
-	_player2->AssignBoard(_board2);
-	_player1->SetShipsToBoard(_ships1);
-	_player2->SetShipsToBoard(_ships2);
+	SetWhosTurn();
+	SetPlayers(player1, player2);
 }
 
 bool Gamefield::GameOver()

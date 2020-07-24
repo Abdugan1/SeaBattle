@@ -33,6 +33,4 @@ bool PlayerHuman::Attack(Player& enemy_player)
 	{
 		return false;
 	}
-
-    return false;
 }
