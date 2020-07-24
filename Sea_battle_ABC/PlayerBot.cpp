@@ -48,32 +48,28 @@ PlayerBot::PlayerBot() :
 bool PlayerBot::Attack(Player& enemy_player)
 {
     static Position hit_pos;
-	clock_t delay = rand() % 1000 + 400;
-	clock_t start;
-	if (!_hit)
-	{
+	//clock_t delay = rand() % 1000 + 400;
+	//clock_t start;
+	//if (!_hit)
+	//{
 		do {
-			start = clock();
+			//start = clock();
 			hit_pos.x = rand() % WIDTH;
 			hit_pos.y = rand() % HEIGHT;
-			while (clock() - start < delay);
+			//while (clock() - start < delay);
 		} while (enemy_player.isntCorrectAttack(hit_pos));
-	}
+	//}
 
 	if (enemy_player.ProjectileHit(hit_pos))
 	{
-		_hit = true;
+		//_hit = true;
 		enemy_player.ProcessHit(hit_pos);
-		ChangeHitPos(hit_pos);
+		//ChangeHitPos(hit_pos);
 		return true;
-	}
-	else if (true)
-	{
-
 	}
 	else
 	{
-		SwitchAttackDir();
+		//SwitchAttackDir();
 		return false;
 	}
 }
